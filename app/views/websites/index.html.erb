@@ -1,0 +1,40 @@
+<br><br><br>
+<div class= "container">
+    <center>
+    <%- model_class = Website -%>
+    <div class="page-header">
+      <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+    </div>
+      <%= search_form_for @search do |f| %>
+        <%= f.label :name_cont %>
+        <%= f.search_field :name_cont %>
+        <%= f.submit %>
+      <% end %>
+    </center>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= sort_link @search, :name %></th>
+          <th><%= sort_link @search, :price  %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @websites.each do |website| %>
+          <tr> 
+            <td><%= website.name %></td>
+            <td><%= website.days %></td>
+            <td><h5 class="text-right"> Price: <span style="color: green"><%= number_to_currency website.price %></span></h5></td>
+            <td>
+              <%= link_to t('.show', :default => t("helpers.links.show")), website_path(website), :class => 'btn btn-default btn-xs' %>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_website_path(website), :class => 'btn btn-default btn-xs' %>
+              <%= link_to 'Destroy', website_path(website), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-dangar' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <center>
+      <%= link_to 'NEW WEBSITE', new_website_path, class: 'btn btn-primary' %>
+    </center>
+  </div>
+  <br>

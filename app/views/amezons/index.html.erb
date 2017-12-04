@@ -1,0 +1,37 @@
+<br><br><br>
+<div class="container">
+  <h4 style= "font-size:30px;"><b>Check out our Amazon FBA businesses for sale</b></h4>
+
+  Amazon has created one of the most advanced fulfillment networks in the world, Fulfillment By Amazon. If you would like to sell your store, click here.
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th> Amezon FBA</th>
+          <th> price </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @amezons.each do |amezon| %>
+          <tr> 
+           <td><%= amezon.name %></td>
+            <td><h5 class="text-right"> Price: <span style="color: green"><%= number_to_currency amezon.price %></span></h5></td>
+            <td>
+              <%= link_to t('.show', :default => t("helpers.links.show")),
+                          amezon_path(amezon), :class => 'btn btn-default btn-xs' %>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_amezon_path(amezon), :class => 'btn btn-default btn-xs' %>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          amezon_path(amezon),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-xs btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <center>
+      <%= link_to 'NEW AMEZON', new_amezon_path, class: 'btn btn-primary' %>
+    </center>
+  <br>
+</div>

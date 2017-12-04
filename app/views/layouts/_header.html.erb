@@ -1,0 +1,137 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">WebSiteName</a>
+        </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><%= link_to 'HOME', welcome_index_path %></li>
+            <li>
+              <%= link_to 'ARTICLE', articles_path, class: "dropbtn-a" %></button>
+            </li>
+              <li>
+                <div class="dropdown">
+                    <button class="dropbtn"><%= link_to 'WEBSITE', welcome_website_path, class: "dropbtn-a" %></button>
+                  <div class="dropdown-content-1">
+                    <div class="container">
+                      <ul class="nav navbar-nav">
+                        <li><a href="#">All</a></li>
+                        <li><a href="#">Established Sites</a></li>
+                        <li><a href="#">Starter Sites</a></li>
+                        <li><a href="#">Editor's Choice</a></li>
+                        <li><a href="#">Most Active</a></li>
+                        <li><a href="#">Ending Soon</a></li>
+                        <li><a href="#">Just Sold</a></li>
+                        <li><a href="#">Shopify</a></li>
+                        <li><a href="#">Valuation</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="dropdown">
+                        <button class="dropbtn" ><%= link_to 'DOMAIN', welcome_domain_path, class: "dropbtn-a" %></button>
+                  <div class="dropdown-content-2">
+                    <div class="container">
+                      <ul class="nav navbar-nav">
+                        <li><a href="#">All</a></li>
+                        <li><a href="#">Promoted</a></li>
+                        <li><a href="#">Most Active</a></li>
+                        <li><a href="#">Ending Soon</a></li>
+                        <li><a href="#">Editor's Choice</a></li>
+                        <li><a href="#">Just Sold</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="dropdown">
+                    <button class="dropbtn" ><%= link_to 'APP', welcome_app_path, class: "dropbtn-a" %></button>'
+                  <div class="dropdown-content-3">
+                    <div class="container">
+                      <ul class="nav navbar-nav">
+                        <li><a href="#">iOS</a></li>
+                        <li><a href="#">Android</a></li>
+                        <li><a href="#">Editor's Choice</a></li>
+                        <li><a href="#">Most Active</a></li>
+                        <li><a href="#">Ending Soon</a></li>
+                        <li><a href="#">Just Sold</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                 <%= link_to 'AMEZON FBA', amezons_path, class: "dropbtn-a" %></button>
+              </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li><%= link_to 'Log Out',  destroy_user_session_path,  method: :delete %></li>
+              <li><a class="btn" data-toggle="modal" href="#myprofile" >Edit Profile</a>
+                <!-- Modal -->
+                <div class="modal fade" id="myprofile" role="dialog">
+                  <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                        <h4 class="modal-title">EDIT PROFILE FORM</h4>
+                      </div>
+                      <div class="modal-body">
+                        <%= render 'users/registrations/edit' %>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            <% else %>
+              <li><a class="btn" data-toggle="modal" href="#myModal" >SIGN UP</a>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                  <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">SIGN UP FORM</h4>
+                      </div>
+                      <div class="modal-body">
+                        <%= render 'users/registrations/new' %>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li><a class="btn" data-toggle="modal" href="#mylogin" >LOG IN</a>
+                  <!-- Modal -->
+                <div class="modal fade" id="mylogin" role="dialog">
+                  <div class="modal-dialog">
+                      <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                         <h4 class="modal-title">LOG IN FORM</h4>
+                      </div>
+                      <div class="modal-body">
+                        <%= render 'users/sessions/new' %>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+            <li><div class= "btn btn-success"><%= link_to 'START SELLING', welcome_StartSelling_path %></li></div></li>
+          </ul>
+    </div>
+</nav>
